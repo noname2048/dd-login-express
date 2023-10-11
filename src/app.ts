@@ -16,7 +16,7 @@ app.post("/user/login", (req: Request, res: Response) => {
     req.body;
   if (username.length > 1 && username === password) {
     const refreshToken = jwt.sign({ username }, secretKey, {
-      expiresIn: "1h",
+      expiresIn: "3m",
     });
     res
       .cookie("refreshToken", refreshToken, { httpOnly: true })
